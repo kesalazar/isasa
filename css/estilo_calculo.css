@@ -1,0 +1,21 @@
+body {
+    background-image: url("CWALL3.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 1px;
+    background-attachment: fixed;
+}
+h5 {
+	background-color: rgba(180, 180, 180, 0.8);: 
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(255, 232, 0, 0.6)
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
