@@ -22,8 +22,22 @@ if (isset($_GET['errno'])){
     <title>ISASA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	<link rel="shortcut icon" href="./imagenes/Info_25978.ico"/>
-	<link rel="stylesheet" href="./css/estilo_datos.css"> 
+	<style>          
+			body{
+			  background: url(CWALL3.jpg);
+			  background-repeat: no-repeat;
+              background-position: center;
+              margin-right: 1px;
+              background-attachment: fixed;
+ 
+			}           
+		 </style>
+		 <style>
+		 h2 { 
+		 }form{
+			 background-color: rgb(236, 233, 15);
+		 }
+		 </style>
 </head>
 <body>
 	<header>
