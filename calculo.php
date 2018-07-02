@@ -7,7 +7,6 @@ if(isset($_GET['largo']) and isset($_GET['ancho'])){
   header('location: index.php?errno=0');
 }
 ?>
-
 <?php 
 include ("db_connect.php");
 $conexion=connect();
@@ -20,9 +19,36 @@ while($row = mysqli_fetch_assoc($result)) {
          $d_ripio=$row['ripio_kg'];
          $d_cemento=$row['cemento_kg'];
         }
+
+$sql="SELECT material,precio,kilos FROM precios WHERE material='agua'";
+$result=mysqli_query($conexion, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+		   $p_agua=$row['precio'];
+           $k_agua=$row['kilos'];        
+       }
+
+$sql="SELECT material,precio,kilos FROM precios WHERE material='arena'";
+$result=mysqli_query($conexion, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+		   $p_arena=$row['precio'];
+           $k_arena=$row['kilos'];        
+        }    
+
+$sql="SELECT material,precio,kilos FROM precios WHERE material='cemento'";
+$result=mysqli_query($conexion, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+		   $p_cemento=$row['precio'];
+           $k_cemento=$row['kilos'];        
+        }
+
+$sql="SELECT material,precio,kilos FROM precios WHERE material='gravilla'";
+$result=mysqli_query($conexion, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+		   $p_ripio=$row['precio'];
+           $k_ripio=$row['kilos'];        
+        }                    
 mysqli_close($conexion);
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,23 +113,23 @@ th, td {
   </tr>
   <tr>
     <td>Cemento</td>
-    <td> <?php echo $cal1=ceil((mat(vol($largo,$ancho,$espesor),$d_cemento))/25);?> sacos </td> 
-    <td> <?php echo $pr1=$cal1*3580; ?> CLP </td>
+    <td> <?php echo $cal1=ceil((mat(vol($largo,$ancho,$espesor),$d_cemento))/$k_cemento);?> sacos </td> 
+    <td> <?php echo $pr1=$cal1*$p_cemento; ?> CLP </td>
   </tr>
   <tr>
     <td>Arena</td>
-    <td> <?php echo $cal2=ceil((mat(vol($largo,$ancho,$espesor),$d_arena))/25);?> sacos</td> 
-    <td> <?php echo $pr2=$cal2*950;?> CLP</td>
+    <td> <?php echo $cal2=ceil((mat(vol($largo,$ancho,$espesor),$d_arena))/$k_arena);?> sacos</td> 
+    <td> <?php echo $pr2=$cal2*$p_arena;?> CLP</td>
   </tr>
   <tr>
     <td>Ripio</td>
-    <td> <?php echo $cal3=ceil((mat(vol($largo,$ancho,$espesor),$d_ripio))/20);?> sacos</td> 
-    <td> <?php echo $pr3=$cal3*990;?> CLP </td>
+    <td> <?php echo $cal3=ceil((mat(vol($largo,$ancho,$espesor),$d_ripio))/$k_ripio);?> sacos</td> 
+    <td> <?php echo $pr3=$cal3*$p_ripio;?> CLP </td>
   </tr>
   <tr>
     <td>Agua</td>
     <td> <?php echo $cal4=(mat(vol($largo,$ancho,$espesor),$d_agua));?> lts</td> 
-    <td> <?php echo $pr4=ceil(($cal4/1000)*577.27);?> CLP </td>
+    <td> <?php echo $pr4=ceil(($cal4/$k_agua)*$p_agua);?> CLP </td>
   </tr>
   <tr>
   	<td>Total</td>
