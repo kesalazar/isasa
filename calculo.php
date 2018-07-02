@@ -6,9 +6,8 @@ if(isset($_GET['largo']) and isset($_GET['ancho'])){
 } else{
   header('location: index.php?errno=0');
 }
-?>
-<?php 
-include ("db_connect.php");
+//consulta dosificaciones y precios unitarios 
+include ("./funciones/db_connect.php");
 $conexion=connect();
 $sql="SELECT espesor_m,agua_lts,arena_kg,ripio_kg,cemento_kg FROM dosificaciones_por_m3 WHERE uso_carga='".$uso."'";
 $result=mysqli_query($conexion, $sql);
@@ -48,6 +47,20 @@ while($row = mysqli_fetch_assoc($result)) {
            $k_ripio=$row['kilos'];        
         }                    
 mysqli_close($conexion);
+
+//cálculos materiales y precios
+include ("./funciones/f_volumen.php");
+include ("./funciones/f_material.php");
+$volumen=vol($largo,$ancho,$espesor);
+$cal1=ceil(mat($volumen,$d_cemento)/$k_cemento);
+$pr1=$cal1*$p_cemento;
+$cal2=ceil(mat($volumen,$d_arena)/$k_arena);
+$pr2=$cal2*$p_arena;
+$cal3=ceil(mat($volumen,$d_ripio)/$k_ripio);
+$pr3=$cal3*$p_ripio;
+$cal4=mat($volumen,$d_agua);
+$pr4=ceil(($cal4/$k_agua)*$p_agua);
+$precio_total=$pr1+$pr2+$pr3+$pr4;
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,55 +70,21 @@ mysqli_close($conexion);
     <title>ISASA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <style>
-body {
-    background-image: url("CWALL3.jpg"); 
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 1px;
-    background-attachment: fixed;
-}
-h5 {
-	background-color: rgba(180, 180, 180, 0.8);: 
-}
-</style>
+    <link rel="stylesheet" href="./css/estilo_calculo.css"> 
+    <link rel="shortcut icon" href="./imagenes/Info_25978.ico"/>
 </head>
 <body>
-<?php
-function vol($lar,$anc,$esp){
-    $volumen = $lar * $anc * $esp;
-    return $volumen;
-}
-function mat($vol,$mat1){
-    $material=$vol*$mat1;
-    return $material;
-}
-
-?>
-	 
-	<style type="text/css">
-		table {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: rgba(255, 232, 0, 0.6)
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-	</style>
 	<header>
 		<div class="container text-center">
 			<h1>ISASA</h1>
 		</div>
 		<div class="container text-center">
-			<h5>Hola! Gracias por utilizar ISASA! <br>
-				Según las dimensiones: largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor <?php echo $espesor ?>m, te sugerimos estas cantidades!
-                <br></h5>
-                 
-<table style="width:100%">
+			<h5>
+        Hola! Gracias por utilizar ISASA! Según las dimensiones: 
+        largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor     
+        <?php echo $espesor ?>m, te sugerimos estas cantidades!
+      </h5>              
+<table>
   <tr>
     <th>Material</th>
     <th>Cantidad</th> 
@@ -113,39 +92,40 @@ th, td {
   </tr>
   <tr>
     <td>Cemento</td>
-    <td> <?php echo $cal1=ceil((mat(vol($largo,$ancho,$espesor),$d_cemento))/$k_cemento);?> sacos </td> 
-    <td> <?php echo $pr1=$cal1*$p_cemento; ?> CLP </td>
+    <td> <?php echo $cal1;?> sacos </td> 
+    <td> <?php echo $pr1;?> CLP </td>
   </tr>
   <tr>
     <td>Arena</td>
-    <td> <?php echo $cal2=ceil((mat(vol($largo,$ancho,$espesor),$d_arena))/$k_arena);?> sacos</td> 
-    <td> <?php echo $pr2=$cal2*$p_arena;?> CLP</td>
+    <td> <?php echo $cal2;?> sacos</td> 
+    <td> <?php echo $pr2;?> CLP</td>
   </tr>
   <tr>
     <td>Ripio</td>
-    <td> <?php echo $cal3=ceil((mat(vol($largo,$ancho,$espesor),$d_ripio))/$k_ripio);?> sacos</td> 
-    <td> <?php echo $pr3=$cal3*$p_ripio;?> CLP </td>
+    <td> <?php echo $cal3;?> sacos</td> 
+    <td> <?php echo $pr3;?> CLP </td>
   </tr>
   <tr>
     <td>Agua</td>
-    <td> <?php echo $cal4=(mat(vol($largo,$ancho,$espesor),$d_agua));?> lts</td> 
-    <td> <?php echo $pr4=ceil(($cal4/$k_agua)*$p_agua);?> CLP </td>
+    <td> <?php echo $cal4;?> lts</td> 
+    <td> <?php echo $pr4;?> CLP </td>
   </tr>
   <tr>
-  	<td>Total</td>
+  	<th>Total</th>
   	<td></td>
-  	<td> <?php echo $pr1+$pr2+$pr3;?> CLP</td>
+  	<th> <?php echo $precio_total;?> CLP</th>
   </tr>
 </table>
 	<br>
-	<p>*Para el cálculo de materiales se han considerado sacos de 25 kg. Los precios son referenciales</p>
+	<p>
+    *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
+  </p>
 		</div>
 	</header>
 	<div class="container">
-		<h3 class="text-center">  </h3> 
+		<h3 class="text-center"></h3> 
 	</div>
 	<div class="container" class="text-center">
-		<input type="submit" value="Nuevo cálculo" name="recalcula" onclick="location='index.php'" ></div>
+		<input type="submit" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'" ></div>
 </body>
-
 </html>
