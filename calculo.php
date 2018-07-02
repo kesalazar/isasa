@@ -71,7 +71,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilo_calculo.css"> 
-    <link rel="shortcut icon" href="./imagenes/Info_25978.ico"/>
+    <link rel="shortcut icon" href="./imagenes/Captura.JPG"/>
 </head>
 <body>
 	<header>
@@ -116,7 +116,6 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
   	<th> <?php echo $precio_total;?> CLP</th>
   </tr>
 </table>
-	<br>
 	<p>
     *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
   </p>
@@ -126,6 +125,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
 		<h3 class="text-center"></h3> 
 	</div>
 	<div class="container" class="text-center">
-		<input type="submit" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'" ></div>
+		<input type="submit" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'">
+  </div>
 </body>
 </html>
