@@ -30,40 +30,50 @@ if (isset($_GET['errno'])){
 		<div class="container text-center">
 			<br>
 			<div class="row">
-				<div class="col-md"></div>
-				<div class="col-md">
-					<div class="alert alert-secondary" role="alert">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="alert alert-dark" role="alert">
                     <h2 class="alert-heading">ISASA</h2>
-                    <p class="text-justify">
                     <hr>	
 					<h5>RADIER</h5>
-					<p>Ingresa dimensiones y uso del radier</p>
-                    </p>                    
+					<h6>Ingresa dimensiones y uso del radier</h6>                 
             		</div>
 				</div>
-				<div class="col-md"></div>
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 	</header>
 	<div class="container text-center">
-		<form class="form-signin" action="calculo.php" method="get">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+			<form class="form-signin" action="calculo.php" method="get">
 			<br>
-			<p class="btn btn-light">Largo</p><br>
-            <input type="number" min="0.05" step="0.001" id= "inputlargo" name="largo" class="form-control" placeholder="Largo en metros" required autofocus>
-			<br>
-			<p class="btn btn-light">Ancho</p><br>
-			<input type="number" min="0.05" step="0.001" id= "inputancho" name="ancho" class="form-control" placeholder="Ancho en metros" required>
-			<br>
-			<p class="btn btn-light">Uso</p><br>
-			<select class="btn btn-light"name="Cargas">
-					<option value="liviana">Cargas Livianas</option> 
-					<option value="media">Cargas Medianas</option> 
-					<option value="pesada">Cargas Pesadas</option>
-				 </select>
-			<br><br>
-			<input type="submit" class="btn btn-light"value="Calcular">
-			<br><br>
-		  </form> 
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<p class="btn btn-secondary btn-sm">Largo</p><br>
+					<input class="alert alert-dark" type="number" min="0.05" step="0.001" id= "inputlargo" name="largo" class="form-control" placeholder="Largo en metros" required autofocus>
+					<br>
+					<p class="btn btn-secondary btn-sm">Ancho</p><br>
+					<input class="alert alert-dark" type="number" min="0.05" step="0.001" id= "inputancho" name="ancho" class="form-control" placeholder="Ancho en metros" required>
+					<br>
+					<p class="btn btn-secondary btn-sm">Uso</p><br>
+					<select class="alert alert-dark" name="Cargas">
+							<option value="liviana">Cargas Livianas</option> 
+							<option value="media">Cargas Medianas</option> 
+							<option value="pesada">Cargas Pesadas</option>
+					</select>
+					<br><br>
+					<input type="submit" class="btn btn-secondary" value="Calcular">
+					<br><br>					 
+				</div>
+			</form>	
+				<div class="col-md-2"></div>
+			</div>			 	
+			</div>
+			<div class="col-md-2"></div>
+		</div>		
 	</div>
 </body>
 </html>

@@ -6,8 +6,9 @@ if(isset($_GET['largo']) and isset($_GET['ancho'])){
 } else{
   header('location: index.php?errno=0');
 }
+session_start();
 //consulta dosificaciones y precios unitarios 
-include ("./funciones/db_connect.php");
+include ("./funciones_librerias/db_connect.php");
 $conexion=connect();
 $sql="SELECT espesor_m,agua_lts,arena_kg,ripio_kg,cemento_kg FROM dosificaciones_por_m3 WHERE uso_carga='".$uso."'";
 $result=mysqli_query($conexion, $sql);
@@ -49,8 +50,8 @@ while($row = mysqli_fetch_assoc($result)) {
 mysqli_close($conexion);
 
 //cálculos materiales y precios
-include ("./funciones/f_volumen.php");
-include ("./funciones/f_material.php");
+include ("./funciones_librerias/f_volumen.php");
+include ("./funciones_librerias/f_material.php");
 $volumen=vol($largo,$ancho,$espesor);
 $cal1=ceil(mat($volumen,$d_cemento)/$k_cemento);
 $pr1=$cal1*$p_cemento;
@@ -87,13 +88,15 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
         <div class="col-md"></div>
       </div>
 		</div>
-		<div class="container text-center">
-			<h5 class="btn btn-secondary">
+		<div class="text-center">
+			<h7 class="btn btn-secondary btn-lg">
         Hola! Gracias por utilizar ISASA! Según las dimensiones: 
         largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor     
-        <?php echo $espesor ?>m, te sugerimos estas cantidades!
-      </h5>              
-<table>
+        <?php echo $espesor ?>m, te sugerimos estas cantidades!</h7>
+      <br><br>
+    </div>
+    <div class="container">
+      <table>
   <tr>
     <th>Material</th>
     <th>Cantidad</th> 
@@ -124,11 +127,15 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
   	<td></td>
   	<th> <?php echo $precio_total;?> CLP</th>
   </tr>
-</table>
-  <em>
-  *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
-  </em>
-  </div><br>
+      </table>
+      	<div class="text-center">
+       		<h6>
+       		<em>
+      		*Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
+      		</em>
+      		</h6>
+      	</div>
+     </div><br>
 	</header>
   <div class="container">
     <div class="row">
@@ -141,10 +148,19 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
       <div class="col-md-3"></div>
       <div class="col-md-3">
         <div class="text-left">
-          <input type="submit" class="btn btn-secondary" value="Imprimir Reporte" name="recalcula"">
+          <input type="submit" class="btn btn-secondary" value="Imprimir Reporte" onclick="location='pdf1.php'"  name="pdf">
         </div>         
       </div>      
     </div>  
   </div>
+  <?php $_SESSION['ccem']=$cal1 ?>
+    <?php $_SESSION['tcem']=$pr1 ?>
+    <?php $_SESSION['care']=$cal2 ?>
+    <?php $_SESSION['tare']=$pr2 ?>
+    <?php $_SESSION['crip']=$cal3?>
+    <?php $_SESSION['trip']=$pr3 ?>
+    <?php $_SESSION['cagu']=$pr4 ?>
+    <?php $_SESSION['tagu']=$cal4?>
+    <?php $_SESSION['total']=$precio_total ?>
 </body>
 </html>
