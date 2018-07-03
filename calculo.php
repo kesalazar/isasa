@@ -76,10 +76,19 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
 <body>
 	<header>
 		<div class="container text-center">
-			<h1>ISASA</h1>
+      <br>
+      <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md">
+          <div class="alert alert-secondary" role="alert">
+            <h2 class="alert-heading">ISASA</h2>                                        
+          </div>
+        </div>
+        <div class="col-md"></div>
+      </div>
 		</div>
 		<div class="container text-center">
-			<h5>
+			<h5 class="btn btn-secondary">
         Hola! Gracias por utilizar ISASA! Según las dimensiones: 
         largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor     
         <?php echo $espesor ?>m, te sugerimos estas cantidades!
@@ -119,13 +128,23 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
   <em>
   *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
   </em>
-  </div>
+  </div><br>
 	</header>
-	<div class="container">
-		<h3 class="text-center"></h3> 
-	</div>
-	<div class="container" class="text-center">
-		<input type="submit" class="btn btn-secondary" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="text-right">
+          <input type="submit" class="btn btn-secondary" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'">
+        </div>        
+      </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <div class="text-left">
+          <input type="submit" class="btn btn-secondary" value="Imprimir Reporte" name="recalcula"">
+        </div>         
+      </div>      
+    </div>  
   </div>
 </body>
 </html>
