@@ -11,28 +11,41 @@
     <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
 </head>
 <body>
-    <div class="container">
+    <div class="container"><br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-right">
+                    <input type="submit" class="btn btn-secondary btn-sm" value="Administrador" name="recalcula" onclick="location='admin.php'">
+                </div>
+            </div>
+        </div>   
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md"><br><br><br>
                 <div class="alert alert-secondary" role="alert">
-                    <h4 class="alert-heading">Bienvenido a ISASA!</h4>
-                    <p class="text-justify">
+                    <h4 class="alert-heading">
+                        <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Bienvenido a ISASA!
+                    </h4>
+                    <p class="text-justify">                        
                         ISASA es una aplicación eficiente para el cálculo de radieres. La idea es que ingreses el largo y ancho del radier 
                         que quieres construir, y una categoría de uso. La aplicación te calculará la cantidad de materiales 
                         y estimará el dinero que necesitas para construir tu radier.
                     </p>
                     <hr>
                     <small class="text-muted">
-                        <p class="text-justify">La información usada en este sitio para los cálculos es referencial, 
-                        si usas esta aplicación es tú responsabilidad. Para continuar con tu cálculo selecciona 'Aceptar'.</p>
+                        <p class="text-justify"><em>La información usada en este sitio para los cálculos es referencial, 
+                        si usas esta aplicación es tú responsabilidad. Para continuar con tu cálculo selecciona 'Aceptar'.</em></p>
                     </small>
                 </div> 
                 <div class="text-center">
-                    <input type="submit" class="btn btn-secondary" value="Aceptar" name="recalcula" onclick="location='datos.php'">
-                </div>                  
+                    <input type="submit" class="btn btn-secondary" value="Aceptar" name="aceptar" onclick="location='datos.php'">
+                </div><br><br><br><br>                
+                <div class="text-center">
+                <p>&#174; ISASA 2018</p> 
+                </div>                   
             </div>
             <div class="col-md"></div>
+            <br> 
         </div>        
     </div>
 </body>

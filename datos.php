@@ -1,19 +1,3 @@
-<?php
-$msg ='';
-if (isset($_GET['errno'])){
-    switch($_GET['errno']){
-        case 0:
-        $msg = '<p class="alert alert-danger">Debe ingresar por index.php</p>';
-        break;
-        case 1;
-        $msg = '<p class="alert alert-warning">Debe llenar ambos campos.</p>';
-        break;
-        default:
-        $msg ='';
-        break; 
-    }
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +17,9 @@ if (isset($_GET['errno'])){
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="alert alert-dark" role="alert">
-                    <h2 class="alert-heading">ISASA</h2>
+                    <h2 class="alert-heading">
+                    	<img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA
+                	</h2>
                     <hr>	
 					<h5>RADIER</h5>
 					<h6>Ingresa dimensiones y uso del radier</h6>                 
@@ -73,7 +59,11 @@ if (isset($_GET['errno'])){
 			</div>			 	
 			</div>
 			<div class="col-md-2"></div>
-		</div>		
+		</div>
+		<br><br>
+    	<div class="text-center">
+      	<p>&#174; ISASA 2018</p> 
+    	</div>		
 	</div>
 </body>
 </html>

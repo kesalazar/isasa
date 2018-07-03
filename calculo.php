@@ -82,7 +82,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
         <div class="col-md"></div>
         <div class="col-md">
           <div class="alert alert-secondary" role="alert">
-            <h2 class="alert-heading">ISASA</h2>                                        
+            <h2 class="alert-heading"><img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA</h2>                                        
           </div>
         </div>
         <div class="col-md"></div>
@@ -134,7 +134,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
       		*Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
       		</em>
       		</h6>
-      	</div>
+      	</div>      	
      </div><br>
 	</header>
   <div class="container">
@@ -149,18 +149,24 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
       <div class="col-md-3">
         <div class="text-left">
           <input type="submit" class="btn btn-secondary" value="Imprimir Reporte" onclick="location='pdf1.php'"  name="pdf">
-        </div>         
-      </div>      
+        </div>                 
+      </div>
+    </div><br><br><br>
+    <div class="text-center">
+      <p>&#174; ISASA 2018</p> 
     </div>  
   </div>
-  <?php $_SESSION['ccem']=$cal1 ?>
-    <?php $_SESSION['tcem']=$pr1 ?>
-    <?php $_SESSION['care']=$cal2 ?>
-    <?php $_SESSION['tare']=$pr2 ?>
+    <?php $_SESSION['lar']=$largo?>
+    <?php $_SESSION['anc']=$ancho?>
+    <?php $_SESSION['esp']=$espesor?>
+    <?php $_SESSION['ccem']=$cal1?>
+    <?php $_SESSION['tcem']=$pr1?>
+    <?php $_SESSION['care']=$cal2?>
+    <?php $_SESSION['tare']=$pr2?>
     <?php $_SESSION['crip']=$cal3?>
-    <?php $_SESSION['trip']=$pr3 ?>
-    <?php $_SESSION['cagu']=$pr4 ?>
+    <?php $_SESSION['trip']=$pr3?>
+    <?php $_SESSION['cagu']=$pr4?>
     <?php $_SESSION['tagu']=$cal4?>
-    <?php $_SESSION['total']=$precio_total ?>
+    <?php $_SESSION['total']=$precio_total?>    
 </body>
 </html>
