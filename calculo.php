@@ -131,7 +131,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
       	<div class="text-center">
        		<h6>
        		<em>
-      		*Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
+      		*Para el cálculo de materiales se han considerado sacos de 25 kg. Los precios son referenciales
       		</em>
       		</h6>
       	</div>      	
