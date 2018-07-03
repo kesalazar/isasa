@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2018 a las 20:13:38
+-- Tiempo de generación: 03-07-2018 a las 23:13:02
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -69,6 +69,68 @@ INSERT INTO `precios` (`material`, `precio`, `kilos`, `sacos`) VALUES
 ('arena', 950, 25, 1),
 ('gravilla', 990, 25, 1),
 ('agua', 577.27, 1000, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proyectos`
+--
+
+CREATE TABLE `proyectos` (
+  `id_proyecto` int(4) NOT NULL,
+  `cod_us` int(4) NOT NULL,
+  `largo` float NOT NULL,
+  `ancho` float NOT NULL,
+  `espesor` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `cod_us` int(4) NOT NULL,
+  `nick` varchar(20) COLLATE utf8_swedish_ci NOT NULL,
+  `contraseña` varchar(20) COLLATE utf8_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  ADD KEY `cod_us` (`cod_us`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`cod_us`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `cod_us` int(4) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`cod_us`) REFERENCES `usuario` (`cod_us`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
