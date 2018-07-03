@@ -71,7 +71,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilo_calculo.css"> 
-    <link rel="shortcut icon" href="./imagenes/Captura.JPG"/>
+    <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
 </head>
 <body>
 	<header>
@@ -116,10 +116,10 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
   	<th> <?php echo $precio_total;?> CLP</th>
   </tr>
 </table>
-	<p>
-    *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
-  </p>
-		</div>
+  <em>
+  *Para el cálculo de materiales se han considerado sacos de 25 kg (arena y cemento) y 20 kg (ripio). Los precios son referenciales
+  </em>
+  </div>
 	</header>
 	<div class="container">
 		<h3 class="text-center"></h3> 

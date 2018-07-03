@@ -22,7 +22,7 @@ if (isset($_GET['errno'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="./css/login.css" rel="stylesheet">
-    <link rel="shortcut icon" href="./imagenes/Captura.JPG"/>
+    <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
     <title>Login ISASA</title>
 </head>
 <body class="text-center">
