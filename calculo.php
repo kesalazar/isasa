@@ -125,7 +125,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
 		<h3 class="text-center"></h3> 
 	</div>
 	<div class="container" class="text-center">
-		<input type="submit" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'">
+		<input type="submit" class="btn btn-secondary" value="Nuevo cálculo" name="recalcula" onclick="location='datos.php'">
   </div>
 </body>
 </html>

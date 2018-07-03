@@ -28,27 +28,41 @@ if (isset($_GET['errno'])){
 <body>
 	<header>
 		<div class="container text-center">
-			<h1>ISASA</h1>
+			<br>
+			<div class="row">
+				<div class="col-md"></div>
+				<div class="col-md">
+					<div class="alert alert-secondary" role="alert">
+                    <h2 class="alert-heading">ISASA</h2>
+                    <p class="text-justify">
+                    <hr>	
+					<h5>RADIER</h5>
+					<p>Ingresa dimensiones y uso del radier</p>
+                    </p>                    
+            		</div>
+				</div>
+				<div class="col-md"></div>
+			</div>
 		</div>
 	</header>
 	<div class="container text-center">
-		<h4>RADIER</h4>
-		<p>Ingrese dimensiones y uso del radier:</p>
 		<form class="form-signin" action="calculo.php" method="get">
-			LARGO:<br>
+			<br>
+			<p class="btn btn-light">Largo</p><br>
             <input type="number" min="0.05" step="0.001" id= "inputlargo" name="largo" class="form-control" placeholder="Largo en metros" required autofocus>
 			<br>
-			ANCHO:<br>
+			<p class="btn btn-light">Ancho</p><br>
 			<input type="number" min="0.05" step="0.001" id= "inputancho" name="ancho" class="form-control" placeholder="Ancho en metros" required>
 			<br>
-			USO:<br>
-			<select name="Cargas">
+			<p class="btn btn-light">Uso</p><br>
+			<select class="btn btn-light"name="Cargas">
 					<option value="liviana">Cargas Livianas</option> 
 					<option value="media">Cargas Medianas</option> 
 					<option value="pesada">Cargas Pesadas</option>
 				 </select>
 			<br><br>
-			<input type="submit" value="Calcular">
+			<input type="submit" class="btn btn-light"value="Calcular">
+			<br><br>
 		  </form> 
 	</div>
 </body>
