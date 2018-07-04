@@ -18,11 +18,10 @@
                 	<h4 class="alert-heading">
                         <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Ingreso ISASA
                     </h4><hr>
-					<form id="frmRegistro" class="form-signin" action="reg.php" method="post">
-      					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br>
-      					<input type="password" name="password" class="form-control" placeholder="Contraseña" required>
-      					<button class="btn btn-secondary" type="submit">Ingresar</button><hr><br>
-                        <input type="submit" class="btn btn-secondary btn-sm" value="Registro" name="aceptar"  onclick="location='registro.php'">
+					<form id="frmRegistro" class="form-signin" action="datos_guardar.php" method="post">
+      					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br><hr>
+      					<input type="password" name="password" class="form-control" placeholder="Contraseña" required><br>
+      					<button class="btn btn-secondary" type="submit">Ingresar</button><br><br>
     				</form>
                 </div>                    
             </div>
@@ -32,9 +31,7 @@
         <div class="row">
         	<div class="col-md"></div>
         	<div class="col-md">
-        		<div class="text-center">
-                <input type="submit" class="btn btn-secondary" value="Continuar sin ingresar" name="invitado"  onclick="location='datos.php'">
-                </div><br><br><br>                
+                <br><br><br>                
                 <div class="text-center">
                 <p>&#174; ISASA 2018</p> 
                 </div>

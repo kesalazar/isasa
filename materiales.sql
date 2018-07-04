@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2018 a las 18:22:00
+-- Tiempo de generación: 04-07-2018 a las 23:52:53
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -77,12 +77,20 @@ INSERT INTO `precios` (`material`, `precio`, `kilos`, `sacos`) VALUES
 --
 
 CREATE TABLE `proyectos` (
-  `id_proyecto` int(4) NOT NULL,
-  `cod_us` int(4) NOT NULL,
-  `largo` float NOT NULL,
-  `ancho` float NOT NULL,
-  `espesor` float NOT NULL
+  `nombres` varchar(20) COLLATE utf8_swedish_ci NOT NULL,
+  `Largo` float NOT NULL,
+  `Ancho` float NOT NULL,
+  `Uso` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`nombres`, `Largo`, `Ancho`, `Uso`) VALUES
+('x', 2, 2, 0.05),
+('kevin', 5, 6, 0.05),
+('3', 3, 3, 0.05);
 
 -- --------------------------------------------------------
 
@@ -101,22 +109,28 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cod_us`, `usuario`, `clave`) VALUES
-(1, 'kesalazar', '123'),
-(3, 'kesalazar', '34'),
-(4, '12', '12'),
-(5, '12', '12'),
-(6, '122', '122'),
-(7, '122', '122');
+(1, 'a', 'a'),
+(3, 'a', 'aaa'),
+(4, 'a', 'aaa'),
+(5, 'a', 'aaa'),
+(6, 'a', 'aaa'),
+(7, 'rtr', 'rrr'),
+(8, 'trty', 'gfgh'),
+(9, 'hh', 'hh'),
+(10, 'hh', 'ff'),
+(11, 'hh', 'ff'),
+(12, 'kesalazar', '123'),
+(13, 'kesalazar', '123'),
+(14, '123', '123'),
+(15, '123', '123'),
+(16, 'jj', 'jj'),
+(17, '', ''),
+(18, '123', '123'),
+(19, 'kesalazar', '1234');
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `proyectos`
---
-ALTER TABLE `proyectos`
-  ADD KEY `cod_us` (`cod_us`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -132,7 +146,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod_us` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod_us` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

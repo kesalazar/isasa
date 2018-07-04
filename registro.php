@@ -18,11 +18,11 @@
                 	<h4 class="alert-heading">
                         <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Registro ISASA
                     </h4><hr>
-					<form id="frmRegistro" class="form-signin" action="reg.php" method="post">
+					<form id="frmRegistro" class="form-signin" action="ingreso.php" method="post">
       					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br>
       					<input type="password" name="password" class="form-control" placeholder="Contraseña" required><br>
       					<input type="password" name="repassword" class="form-control" placeholder="Repetir contraseña" required><br>
-      					<button class="btn btn-secondary" type="submit">Registrar</button>
+      					<button class="btn btn-secondary" type="submit" >Registrar</button>
     				</form>
                 </div>                    
             </div>
