@@ -16,7 +16,7 @@
             <div class="col-md"><br>
                 <div class="alert alert-secondary" role="alert">
                 	<h4 class="alert-heading">
-                        <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Registro ISASA
+                        <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Ingreso ISASA
                     </h4><hr>
 					<form id="frmRegistro" class="form-signin" action="reg.php" method="post">
       					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br>
