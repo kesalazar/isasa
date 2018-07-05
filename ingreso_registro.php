@@ -1,3 +1,11 @@
+<?php 
+require_once ('./funciones_librerias/db_connect.php');
+$conexion=connect();        
+        $usuario=$_POST['usuario'];
+        $password=$_POST['clave'];
+        $sql="INSERT INTO usuarios (usuario,clave) VALUES ('$usuario','$password')"; 
+        $resultado=mysqli_query($conexion,$sql);       
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +28,7 @@
                     </h4><hr>
 					<form id="frmRegistro" class="form-signin" action="bienvenido.php" method="post">
       					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br><hr>
-      					<input type="password" name="clave" class="form-control" placeholder="Contraseña" required><br>
+      					<input type="password" name="password" class="form-control" placeholder="Contraseña" required><br>
       					<button class="btn btn-secondary" type="submit">Ingresar</button><br><br>
     				</form>
                 </div>                    

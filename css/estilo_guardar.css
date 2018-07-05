@@ -1,0 +1,12 @@
+body {
+    background-image: url("CWALL3.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 1px;
+    background-attachment: fixed;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(255, 232, 0, 0.6)
+}

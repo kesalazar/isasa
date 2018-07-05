@@ -1,17 +1,11 @@
 <?php
 require('./funciones_librerias/db_connect.php');
-
 $link = connect();
-
-
 $sql = 'SELECT * FROM proyectos';
 $result = mysqli_query( $link, $sql);
 mysqli_close($link);
 
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,12 +16,11 @@ mysqli_close($link);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
-    <link rel="stylesheet" href="./css/estilo_datos.css"> 
-    <link rel="stylesheet" href="./css/estilo_calculo.css"> 
+    <link rel="stylesheet" href="./css/estilo_guardar.css"> 
     <title>ISASA</title>
 </head>
 <body>
-<div class="container text-center">
+<div class="container text-center">    
 			<br>
 			<div class="row">
 				<div class="col-md-2"></div>
@@ -40,12 +33,19 @@ mysqli_close($link);
 					<h5>Proyectos existentes</h5>              
             		</div>
 				</div>
-				<div class="col-md-2"></div>
+				<div class="col-md-2">
+                    <div class="row">
+                    <div class="col">
+                        <div class="text-right">
+                            <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
+                    </div>                
+                    </div>
+                </div>            
+                </div>
 			</div>
 		</div>    
 <div class="container">
-
-      <table class="alert alert-warning">
+      <table>
         <thead>
           <tr>
           <th class="table-header" >&num; </th>

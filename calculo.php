@@ -91,8 +91,7 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
 		<div class="text-center">
 			<h7 class="btn btn-secondary btn-lg">
         Hola! Gracias por utilizar ISASA! Según las dimensiones: 
-        largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor     
-        <?php echo $espesor ?>m, te sugerimos estas cantidades!</h7>
+        largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y uso, te sugerimos estas cantidades!</h7>
       <br><br>
     </div>
     <div class="container">
