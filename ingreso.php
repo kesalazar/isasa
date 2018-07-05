@@ -18,7 +18,7 @@
                 	<h4 class="alert-heading">
                         <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Ingreso ISASA
                     </h4><hr>
-					<form id="frmRegistro" class="form-signin" action="bienvenido.php" method="post">
+					<form id="frmRegistro" class="form-signin" action="bienvenido_ingreso.php" method="post">
       					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br><hr>
       					<input type="password" name="clave" class="form-control" placeholder="Contraseña" required><br>
       					<button class="btn btn-secondary" type="submit">Ingresar</button><br><br>

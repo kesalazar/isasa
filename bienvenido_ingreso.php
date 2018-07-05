@@ -1,11 +1,12 @@
 <?php 
-require_once ('./funciones_librerias/db_connect.php');
-      
+require_once ('./funciones_librerias/db_connect.php');       
         $usuario=$_POST['usuario'];
         $password=$_POST['clave'];
-        $sql="INSERT INTO usuarios (usuario,clave) VALUES ('$usuario','$password')"; 
+        $sql = "SELECT `usuario` FROM `usuarios`";
         $resultado=mysqli_query($conexion,$sql);       
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,31 +21,41 @@ require_once ('./funciones_librerias/db_connect.php');
 <body class="text-center">
     <div class="container"><br>
         <div class="row">
+            <div class="col">
+                <div class="text-right">
+                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
+                </div>                
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md"></div>
             <div class="col-md"><br>
                 <div class="alert alert-secondary" role="alert">
                 	<h4 class="alert-heading">
-                        <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Ingreso ISASA
+                        <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Bienvenido                        
                     </h4><hr>
-					<form id="frmRegistro" class="form-signin" action="bienvenido.php" method="post">
-      					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br><hr>
-      					<input type="password" name="password" class="form-control" placeholder="Contraseña" required><br>
-      					<button class="btn btn-secondary" type="submit">Ingresar</button><br><br>
-    				</form>
                 </div>                    
             </div>
             <div class="col-md"></div>
             <br> 
-        </div><br><br><br><br>  
+        </div><br>
         <div class="row">
-        	<div class="col-md"></div>
-        	<div class="col-md">
-                <br><br><br>                
+            <div class="col">
                 <div class="text-center">
+                    <input type="submit" class="btn btn-secondary" value="Comienza un nuevo proyecto" onclick="location='guardar.php'">
+                </div><br><br>
+            </div>
+        </div>  
+        <div class="row">
+        	<div class="col-md-4">                
+            </div>
+        	<div class="col-md-4">
+                <input type="submit" class="btn btn-secondary" value="Ver tus proyectos" onclick="location='recuperar.php'">       
+                <div class="text-center"><br><br><br><br><br><br><br><br><br>
                 <p>&#174; ISASA 2018</p> 
                 </div>
         	</div>
-        	<div class="col-md"></div>
+        	<div class="col-md-4"></div>
         </div>    
     </div>
 </body>

@@ -9,7 +9,6 @@ if(isset($_GET['largo']) and isset($_GET['ancho'])){
 session_start();
 //consulta dosificaciones y precios unitarios 
 include ("./funciones_librerias/db_connect.php");
-$conexion=connect();
 $sql="SELECT espesor_m,agua_lts,arena_kg,ripio_kg,cemento_kg FROM dosificaciones_por_m3 WHERE uso_carga='".$uso."'";
 $result=mysqli_query($conexion, $sql);
 while($row = mysqli_fetch_assoc($result)) {

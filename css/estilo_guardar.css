@@ -10,3 +10,9 @@ table {
     width: 100%;
     background-color: rgba(255, 232, 0, 0.6)
 }
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}

@@ -1,11 +1,4 @@
-<?php
-require('./funciones_librerias/db_connect.php');
-$link = connect();
-$sql = 'SELECT * FROM proyectos';
-$result = mysqli_query( $link, $sql);
-mysqli_close($link);
 
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +13,7 @@ mysqli_close($link);
     <title>ISASA</title>
 </head>
 <body>
-<div class="container text-center">    
+<div class="container text-center">
 			<br>
 			<div class="row">
 				<div class="col-md-2"></div>
@@ -33,18 +26,15 @@ mysqli_close($link);
 					<h5>Proyectos existentes</h5>              
             		</div>
 				</div>
-				<div class="col-md-2">
-                    <div class="row">
-                    <div class="col">
-                        <div class="text-right">
-                            <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
-                    </div>                
-                    </div>
+				<div class="col-md-2">                 
+                <div class="text-right">
+                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
                 </div>            
                 </div>
 			</div>
 		</div>    
 <div class="container">
+
       <table>
         <thead>
           <tr>
@@ -58,23 +48,25 @@ mysqli_close($link);
         </thead>
         <tbody>
           <?php
-        if(mysqli_num_rows($result)>0){
+          include "./funciones_librerias/db_connect.php";
+          $sentencia= "SELECT * FROM proyectos";
+          $resultados=$conexion->query($sentencia) or die (mysqli_error($conexion));
             $i = 1;
-            while ($row = mysqli_fetch_assoc($result)){
+            while ($fila= $resultados->fetch_assoc())
+            {
                 /*por cada registro que recupere*/
             echo '<tr>';
             echo '<td>' . $i++ . '</td>';
-            echo '<td>' . $row['nombres'] . ' </td>';
-            echo '<td>' . $row['Largo'] . '</td>';
-            echo '<td>' . $row['Ancho']  .  '</td>';
-            echo '<td>' . $row['Uso']  . '</td>';  
-            echo '<td><a href="./editar.php"><i class="fas fa-pencil-alt"></i></a></td>';
-            echo '<td><a href="./eliminar.php"><i class="fas fa-eraser"></i></a></td>';
+            echo '<td>' . $fila['nombres'] . ' </td>';
+            echo '<td>' . $fila['Largo'] . '</td>';
+            echo '<td>' . $fila['Ancho']  .  '</td>';
+            echo '<td>' . $fila['Uso']  . '</td>';  
+            echo "<td><a href='editar.php?nombres=".$fila['nombres']."'><i class='fas fa-pencil-alt'></i></a></td>";
+            echo "<td><a href='eliminar.php?nombres=".$fila['nombres']."'><i class='fas fa-eraser'></i></a></td>";
             echo '</tr>';
          
             }
-        }
-          ?>
+        ?>
         </tbody>
         </table>
         <div class="mt-4 mb-4">
