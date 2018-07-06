@@ -1,12 +1,3 @@
-<?php 
-require_once ('./funciones_librerias/db_connect.php');       
-        $usuario=$_POST['usuario'];
-        $password=$_POST['clave'];
-        $sql = "SELECT `usuario` FROM `usuarios`";
-        $resultado=mysqli_query($conexion,$sql);       
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +14,7 @@ require_once ('./funciones_librerias/db_connect.php');
         <div class="row">
             <div class="col">
                 <div class="text-right">
-                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
+                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
                 </div>                
             </div>
         </div>

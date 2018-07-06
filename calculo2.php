@@ -1,15 +1,28 @@
 <?php
-if(isset($_GET['largo']) and isset($_GET['ancho'])){
- $largo = $_GET['largo'];
- $ancho = $_GET['ancho'];
- $uso=$_GET['Cargas'];
-} else{
-  header('location: index.php?errno=0');
-}
-session_start();
+
+  $consulta=CalcularProyecto($_GET['nombres']);
+
+  function CalcularProyecto($no_proy)
+      {
+            include "./funciones_librerias/db_connect.php";
+            $sentencia="SELECT * FROM proyectos WHERE nombres='".$no_proy."'";
+            $resultado=$conexion->query($sentencia) or die(mysqli_error($conexion));
+            $fila=$resultado->fetch_assoc();
+        
+            return[
+                $fila['nombres'],
+                $fila['Largo'],
+                $fila['Ancho'],
+                $fila['Uso']
+            ];
+      } 
+      $largo=$consulta[1];
+      $ancho=$consulta[2];
+      $uso=$consulta[3];
+
+      session_start();
 //consulta dosificaciones y precios unitarios 
 include ("./funciones_librerias/db_connect.php");
-$conexion=connect();
 $sql="SELECT espesor_m,agua_lts,arena_kg,ripio_kg,cemento_kg FROM dosificaciones_por_m3 WHERE uso_carga='".$uso."'";
 $result=mysqli_query($conexion, $sql);
 while($row = mysqli_fetch_assoc($result)) {
@@ -85,14 +98,17 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
             <h2 class="alert-heading"><img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA</h2>                                        
           </div>
         </div>
-        <div class="col-md"></div>
+        <div class="col-md">
+          <div class="text-right">
+              <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
+          </div>
+        </div>
       </div>
 		</div>
 		<div class="text-center">
 			<h7 class="btn btn-secondary btn-lg">
         Hola! Gracias por utilizar ISASA! Según las dimensiones: 
-        largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y espesor     
-        <?php echo $espesor ?>m, te sugerimos estas cantidades!</h7>
+        largo <?php echo $largo ?> m, ancho <?php echo $ancho ?>m y uso, te sugerimos estas cantidades!</h7>
       <br><br>
     </div>
     <div class="container">
@@ -139,18 +155,15 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
 	</header>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        <div class="text-center">
-          <input type="submit" class="btn btn-secondary" value="Nuevo cálculo" name="recalcula" onclick="location='datos_guardar.php'">
+      <div class="col-md-3">
+        <div class="text-right">
+          <input type="submit" class="btn btn-secondary" value="Volver a Proyectos" name="recalcula" onclick="location='recuperar.php'">
         </div>        
       </div>
-      <div class="col-md-4">
-        <div class="text-center">
-          <input type="submit" class="btn btn-secondary" value="Guardar Reporte" onclick="location='guardar.php'">
-        </div>
-      </div>      
-      <div class="col-md-4">
-        <div class="text-center">
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <div class="text-left">
           <input type="submit" class="btn btn-secondary" value="Imprimir Reporte" onclick="location='pdf1.php'"  name="pdf">
         </div>                 
       </div>
@@ -173,3 +186,4 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
     <?php $_SESSION['total']=$precio_total?>    
 </body>
 </html>
+

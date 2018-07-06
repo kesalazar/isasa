@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-07-2018 a las 06:04:22
+-- Tiempo de generación: 06-07-2018 a las 20:24:54
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -80,17 +80,8 @@ CREATE TABLE `proyectos` (
   `nombres` varchar(20) COLLATE utf8_swedish_ci NOT NULL,
   `Largo` float NOT NULL,
   `Ancho` float NOT NULL,
-  `Uso` float NOT NULL
+  `Uso` text COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-
---
--- Volcado de datos para la tabla `proyectos`
---
-
-INSERT INTO `proyectos` (`nombres`, `Largo`, `Ancho`, `Uso`) VALUES
-('x', 2, 2, 0.05),
-('kevin', 5, 6, 0.05),
-('3', 3, 3, 0.05);
 
 -- --------------------------------------------------------
 

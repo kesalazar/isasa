@@ -12,13 +12,15 @@
 <body class="text-center">
     <div class="container"><br>
         <div class="row">
-            <div class="col-md"></div>
+            <div class="col-md">
+                <input type="submit" class="btn btn-secondary" value="Inicio" name="aceptar"  onclick="location='index.html'">
+            </div>
             <div class="col-md"><br>
                 <div class="alert alert-secondary" role="alert">
                 	<h4 class="alert-heading">
                         <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  Ingreso ISASA
                     </h4><hr>
-					<form id="frmRegistro" class="form-signin" action="bienvenido_ingreso.php" method="post">
+					<form id="frmRegistro" class="form-signin" action="ingreso2.php" method="post">
       					<input type="text" name="usuario" class="form-control" placeholder="Nombre usuario" required autofocus><br><hr>
       					<input type="password" name="clave" class="form-control" placeholder="Contraseña" required><br>
       					<button class="btn btn-secondary" type="submit">Ingresar</button><br><br>

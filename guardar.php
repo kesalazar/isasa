@@ -26,7 +26,11 @@
 					<h6>Ingresa dimensiones y uso del radier</h6>                 
             		</div>
 				</div>
-				<div class="col-md-2"></div>
+				<div class="col-md-2">
+				<div class="text-right">
+                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
+                </div> 
+				</div>
 			</div>
 </div>
 	<div class="container text-center">
@@ -49,8 +53,8 @@
 					<br>
 					<p class="btn btn-secondary btn-sm">Uso</p><br>
 					<select class="alert alert-dark" name="Uso">
-							<option value="0.05">Cargas Livianas</option> 
-							<option value="0.08">Cargas Medianas</option> 
+							<option value="liviana">Cargas Livianas</option> 
+							<option value="media">Cargas Medianas</option> 
 							<option value="0.12">Cargas Pesadas</option>
 					</select><br>
 					<button type="submit" class="btn btn-secondary">Guardar</button><br><br>

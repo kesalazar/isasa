@@ -45,7 +45,7 @@ function ConsultaProyectos($no_proy)
 				</div>
 				<div class="col-md-2">
 					<div class="text-right">
-                   	<input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
+                   	<input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
                 	</div>
 				</div>
 			</div>
@@ -60,13 +60,18 @@ function ConsultaProyectos($no_proy)
         	<div class="col-md-2"></div>
 			<div class="col-md-8"> 
                 <p for="nombre" class="btn btn-secondary btn-sm">Nombre</p><br>                
-                <input type="text" class="alert alert-dark" id="nombres" name="nombres" value="<?php echo $consulta[0] ?>"><br>
+                <input type="text" class="alert alert-dark" id="nombres" name="nombres"  readonly="readonly" value="<?php echo $consulta[0] ?>"><br>
                 <p for="largo" class="btn btn-secondary btn-sm">Largo</p><br>                
                 <input type="number" class="alert alert-dark" id="Largo" name="Largo" value="<?php echo $consulta[1] ?>"><br>
                 <p for="ancho" class="btn btn-secondary btn-sm">Ancho</p><br>
                 <input type="number" class="alert alert-dark" id="Ancho" name="Ancho" value="<?php echo $consulta[2] ?>"><br>
                 <p for="uso" class="btn btn-secondary btn-sm">Uso</p><br>
-                <input type="number" class="alert alert-dark" id="Uso" name="Uso" value="<?php echo $consulta[3] ?>" ><br>
+                <select class="alert alert-dark" id="Uso" name="Uso" value="<?php echo $consulta[3] ?>">
+							<option value="liviana">Cargas Livianas</option> 
+							<option value="media">Cargas Medianas</option> 
+							<option value="pesada">Cargas Pesadas</option>
+					</select>
+                <br><br>
                 <button type="submit" class="btn btn-secondary">Guardar</button><br><br>
                 <a href="./recuperar.php" class="btn btn-secondary">Cancelar</a><br><br>
             </div>

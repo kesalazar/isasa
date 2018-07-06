@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-md-2">                 
                 <div class="text-right">
-                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='index.html'"> 
+                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
                 </div>            
                 </div>
 			</div>
@@ -61,6 +61,7 @@
             echo '<td>' . $fila['Largo'] . '</td>';
             echo '<td>' . $fila['Ancho']  .  '</td>';
             echo '<td>' . $fila['Uso']  . '</td>';  
+            echo "<td><a href='calculo2.php?nombres=".$fila['nombres']."'><i class='fa fa-eye'></i></a></td>";
             echo "<td><a href='editar.php?nombres=".$fila['nombres']."'><i class='fas fa-pencil-alt'></i></a></td>";
             echo "<td><a href='eliminar.php?nombres=".$fila['nombres']."'><i class='fas fa-eraser'></i></a></td>";
             echo '</tr>';
