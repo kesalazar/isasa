@@ -1,7 +1,5 @@
 <?php 
-
 $consulta=ConsultaProyectos($_GET['nombres']);
-
 function ConsultaProyectos($no_proy)
 {
     include "./funciones_librerias/db_connect.php";
@@ -16,7 +14,6 @@ function ConsultaProyectos($no_proy)
         $fila['Uso']
     ];
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -70,8 +67,8 @@ function ConsultaProyectos($no_proy)
                 <input type="number" class="alert alert-dark" id="Ancho" name="Ancho" value="<?php echo $consulta[2] ?>"><br>
                 <p for="uso" class="btn btn-secondary btn-sm">Uso</p><br>
                 <input type="number" class="alert alert-dark" id="Uso" name="Uso" value="<?php echo $consulta[3] ?>" ><br>
-                <button type="submit" class="btn btn-secondary btn-sm">Guardar</button><br><br>
-                <a href="./recuperar.php" class="btn btn-secondary btn-sm">Cancelar</a><br><br>
+                <button type="submit" class="btn btn-secondary">Guardar</button><br><br>
+                <a href="./recuperar.php" class="btn btn-secondary">Cancelar</a><br><br>
             </div>
             <div class="col-md-2"></div>
             </div>

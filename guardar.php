@@ -28,14 +28,14 @@
 				</div>
 				<div class="col-md-2"></div>
 			</div>
-		</div>
+</div>
 	<div class="container text-center">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-        <form action="./guardar2.php" method="post">
-        <br>
-			<div class="row">
+        		<form action="./guardar2.php" method="post">
+        		<br>
+				<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
                     <p class="btn btn-secondary btn-sm">Nombre</p><br>
@@ -52,18 +52,24 @@
 							<option value="0.05">Cargas Livianas</option> 
 							<option value="0.08">Cargas Medianas</option> 
 							<option value="0.12">Cargas Pesadas</option>
-					</select>
-					<br><br>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                     <input type="submit" class="btn btn-secondary" value="Guardar">
-                    <a href="./recuperar.php" class="btn btn-secondary">Cancelar</a>
+					</select><br>
+					<button type="submit" class="btn btn-secondary">Guardar</button><br><br>
+                	<a href="./bienvenido.php" class="btn btn-secondary">Cancelar</a><br><br>
+					<br> 
+				</div>
+				</div> 
+        		</form>      
+    		</div>
+    	</div>
+    	<div class="row">
+			<div class="col-md"></div>
+        		<div class="col-md">
+                <br><br><br>                
+                <div class="text-center">
+                <p>&#174; ISASA 2018</p> 
                 </div>
-            </div>
-        </form>
-      
-    </div>
-
-    
+        		</div>
+        	<div class="col-md"></div>
+		</div>    
 </body>
 </html>
