@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2018 a las 20:24:54
+-- Tiempo de generación: 06-07-2018 a las 21:59:44
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -80,7 +80,8 @@ CREATE TABLE `proyectos` (
   `nombres` varchar(20) COLLATE utf8_swedish_ci NOT NULL,
   `Largo` float NOT NULL,
   `Ancho` float NOT NULL,
-  `Uso` text COLLATE utf8_swedish_ci NOT NULL
+  `Uso` text COLLATE utf8_swedish_ci NOT NULL,
+  `cod_us` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 -- --------------------------------------------------------
@@ -98,6 +99,13 @@ CREATE TABLE `usuarios` (
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  ADD PRIMARY KEY (`nombres`),
+  ADD KEY `cod_us` (`cod_us`);
 
 --
 -- Indices de la tabla `usuarios`
