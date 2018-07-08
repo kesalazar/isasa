@@ -5,26 +5,28 @@ $consulta=Validarusuarios($usuario,$pass);
 function Validarusuarios($usuario,$pass)
 {
     include "./funciones_librerias/db_connect.php";
-    $sentencia="SELECT `usuario`, `clave` FROM `usuarios` WHERE `usuario`='$usuario' AND (`clave`='$pass') ";
+    $sentencia="SELECT `cod_us`,`nombre`, `clave` FROM `usuarios` WHERE `nombre`='$usuario' AND (`clave`='$pass') ";
     $resultado=$conexion->query($sentencia) or die(mysqli_error($conexion));
     $fila=$resultado->fetch_assoc();
     return[
-        $fila['usuario'],
+        $fila['cod_us'],
+        $fila['nombre'],
         $fila['clave'],
     ];
 }
-$as=$consulta[0];
-echo $as;
+$cod=$consulta[0];
 ?>
 <?php
-
+session_start();
+$_SESSION['cod']=$cod;
 // Se evalúa a true ya que $var está vacia
-if ($as != null) {
-    echo 'usuario valido';
+if ($cod != null) {
     header('Location: bienvenido_ingreso.php');
-
 }else{
-    echo 'algo anda mal';
-    header('Location: ingreso.php');
+    
+    echo ("<script type=\"text/javascript\">alert(\"Los datos ingresados no son validos\"); 
+          window.location.href='ingreso.php';
+          </script>");
+    
 }
 ?>

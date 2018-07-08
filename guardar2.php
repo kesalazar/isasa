@@ -1,9 +1,12 @@
 <?php
- NuevoProducto($_POST['nombres'],$_POST['Largo'],$_POST['Ancho'],$_POST['Uso']);
- function NuevoProducto($nombres,$largo,$ancho,$uso)
+session_start();
+$cod=$_SESSION['cod'];
+echo $cod;
+ NuevoProducto($cod,$_POST['nombres'],$_POST['Largo'],$_POST['Ancho'],$_POST['Uso']);
+ function NuevoProducto($cod,$nombres,$largo,$ancho,$uso)
  {
    include "./funciones_librerias/db_connect.php";
-   $sentencia= "INSERT INTO proyectos (nombres, Largo, Ancho, Uso) VALUES ('".$nombres."','".$largo."','".$ancho."','".$uso."')";
+   $sentencia= "INSERT INTO proyectos (cod_us,proyecto, largo, ancho, uso) VALUES ('".$cod."','".$nombres."','".$largo."','".$ancho."','".$uso."')";
    $conexion->query($sentencia) or die (mysqli_error($conexion));
  }
 

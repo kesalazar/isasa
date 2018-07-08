@@ -12,25 +12,30 @@
     <title>ISASA</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary" href="bienvenido_ingreso.php">Home</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="recuperar.php">Mis Proyectos</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="cerrar.php">Cerrar Sesión</a>
+    </div>   
+  </div>
+</nav>	
 <div class="container text-center">
 			<br>
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="alert alert-dark" role="alert">
-                    <h2 class="alert-heading">
-                    	<img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA
-                	</h2>
-                    <hr>	
 					<h5>Crea un nuevo proyecto de RADIER</h5>
 					<h6>Ingresa dimensiones y uso del radier</h6>                 
-            		</div>
+          </div>
 				</div>
-				<div class="col-md-2">
-				<div class="text-right">
-                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
-                </div> 
-				</div>
+				<div class="col-md-2"></div>
 			</div>
 </div>
 	<div class="container text-center">
@@ -55,11 +60,9 @@
 					<select class="alert alert-dark" name="Uso">
 							<option value="liviana">Cargas Livianas</option> 
 							<option value="media">Cargas Medianas</option> 
-							<option value="0.12">Cargas Pesadas</option>
+							<option value="pesada">Cargas Pesadas</option>
 					</select><br>
 					<button type="submit" class="btn btn-secondary">Guardar</button><br><br>
-                	<a href="./bienvenido.php" class="btn btn-secondary">Cancelar</a><br><br>
-					<br> 
 				</div>
 				</div> 
         		</form>      

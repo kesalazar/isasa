@@ -5,12 +5,12 @@ $consulta=Consultausuarios($_POST['usuario']);
 function Consultausuarios($no_us)
 {
     include "./funciones_librerias/db_connect.php";
-    $sentencia="SELECT * FROM usuarios WHERE usuario='".$no_us."'";
+    $sentencia="SELECT * FROM usuarios WHERE nombre='".$no_us."'";
     $resultado=$conexion->query($sentencia) or die(mysqli_error($conexion));
     $fila=$resultado->fetch_assoc();
     return[
         $fila['cod_us'],
-        $fila['usuario'],
+        $fila['nombre'],
         $fila['clave'],
     ];
 }
@@ -21,7 +21,7 @@ $a=$consulta[1];
 // Se evalúa a true ya que $var está vacia
 if ($a!=null) {
     echo 'usuario existe';
-    header('Location: registro1.php');
+    header('Location: msj_usuario_nodisponible.php');
 
 }else{
     echo 'usuario no existe';

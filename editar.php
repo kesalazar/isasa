@@ -3,15 +3,15 @@ $consulta=ConsultaProyectos($_GET['nombres']);
 function ConsultaProyectos($no_proy)
 {
     include "./funciones_librerias/db_connect.php";
-    $sentencia="SELECT * FROM proyectos WHERE nombres='".$no_proy."'";
+    $sentencia="SELECT * FROM proyectos WHERE proyecto='".$no_proy."'";
     $resultado=$conexion->query($sentencia) or die(mysqli_error($conexion));
     $fila=$resultado->fetch_assoc();
 
     return[
-        $fila['nombres'],
-        $fila['Largo'],
-        $fila['Ancho'],
-        $fila['Uso']
+        $fila['proyecto'],
+        $fila['largo'],
+        $fila['ancho'],
+        $fila['uso']
     ];
 }
 ?>
@@ -29,24 +29,29 @@ function ConsultaProyectos($no_proy)
     <title>ISASA</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary" href="bienvenido_ingreso.php">Home</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="cerrar.php">Cerrar Sesión</a>
+    </div>   
+  </div>
+</nav>    
 <div class="container text-center">
 			<br>
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="alert alert-dark" role="alert">
-                    <h2 class="alert-heading">
-                    	<img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA
-                	</h2>
-                    <hr>	
 					<h5>Edita un proyecto de RADIER</h5>
 					<h6>Modifica dimensiones y uso del radier</h6>                 
             		</div>
 				</div>
 				<div class="col-md-2">
-					<div class="text-right">
-                   	<input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
-                	</div>
 				</div>
 			</div>
 </div>
@@ -62,7 +67,7 @@ function ConsultaProyectos($no_proy)
                 <p for="nombre" class="btn btn-secondary btn-sm">Nombre</p><br>                
                 <input type="text" class="alert alert-dark" id="nombres" name="nombres"  readonly="readonly" value="<?php echo $consulta[0] ?>"><br>
                 <p for="largo" class="btn btn-secondary btn-sm">Largo</p><br>                
-                <input type="number" class="alert alert-dark" id="Largo" name="Largo" value="<?php echo $consulta[1] ?>"><br>
+                <input type="number" class="alert alert-dark" id="Largo" name="Largo" value="<?php echo $consulta[1] ?>" autofocus><br>
                 <p for="ancho" class="btn btn-secondary btn-sm">Ancho</p><br>
                 <input type="number" class="alert alert-dark" id="Ancho" name="Ancho" value="<?php echo $consulta[2] ?>"><br>
                 <p for="uso" class="btn btn-secondary btn-sm">Uso</p><br>

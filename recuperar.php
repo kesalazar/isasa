@@ -13,24 +13,29 @@
     <title>ISASA</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary" href="bienvenido_ingreso.php">Home</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="cerrar.php">Cerrar Sesión</a>
+    </div>   
+  </div>
+</nav>  
 <div class="container text-center">
 			<br>
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="alert alert-dark" role="alert">
-                    <h2 class="alert-heading">
-                    	<img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA
-                	</h2>
-                    <hr>	
 					<h5>Proyectos existentes</h5>              
-            		</div>
+          </div>
 				</div>
-				<div class="col-md-2">                 
-                <div class="text-right">
-                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
-                </div>            
-                </div>
+				<div class="col-md-2">                           
+        </div>
 			</div>
 		</div>    
 <div class="container">
@@ -48,8 +53,15 @@
         </thead>
         <tbody>
           <?php
+          session_start();
+          $usu=$_SESSION['cod'];
+          if ($usu==null){
+            echo ("<script type=\"text/javascript\">alert(\"Por favor, inicie su sesión\"); 
+            window.location.href='ingreso.php';
+            </script>");
+          }
           include "./funciones_librerias/db_connect.php";
-          $sentencia= "SELECT * FROM proyectos";
+          $sentencia= "SELECT * FROM proyectos WHERE cod_us='.$usu.'";
           $resultados=$conexion->query($sentencia) or die (mysqli_error($conexion));
             $i = 1;
             while ($fila= $resultados->fetch_assoc())
@@ -57,13 +69,13 @@
                 /*por cada registro que recupere*/
             echo '<tr>';
             echo '<td>' . $i++ . '</td>';
-            echo '<td>' . $fila['nombres'] . ' </td>';
-            echo '<td>' . $fila['Largo'] . '</td>';
-            echo '<td>' . $fila['Ancho']  .  '</td>';
-            echo '<td>' . $fila['Uso']  . '</td>';  
-            echo "<td><a href='calculo2.php?nombres=".$fila['nombres']."'><i class='fa fa-eye'></i></a></td>";
-            echo "<td><a href='editar.php?nombres=".$fila['nombres']."'><i class='fas fa-pencil-alt'></i></a></td>";
-            echo "<td><a href='eliminar.php?nombres=".$fila['nombres']."'><i class='fas fa-eraser'></i></a></td>";
+            echo '<td>' . $fila['proyecto'] . ' </td>';
+            echo '<td>' . $fila['largo'] . '</td>';
+            echo '<td>' . $fila['ancho']  .  '</td>';
+            echo '<td>' . $fila['uso']  . '</td>';  
+            echo "<td><a href='calculo2.php?nombres=".$fila['proyecto']."'><i class='fa fa-eye'></i></a></td>";
+            echo "<td><a href='editar.php?nombres=".$fila['proyecto']."'><i class='fas fa-pencil-alt'></i></a></td>";
+            echo "<td><a href='eliminar.php?nombres=".$fila['proyecto']."'><i class='fas fa-eraser'></i></a></td>";
             echo '</tr>';
          
             }

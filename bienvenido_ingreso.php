@@ -1,3 +1,10 @@
+<?php
+          session_start();
+          $usu=$_SESSION['cod'];
+          if ($usu==null){
+              header('location:ingreso.php');
+          }else{}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +16,21 @@
     <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
     <title>Ingreso ISASA</title>
 </head>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary active">Home</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="cerrar.php">Cerrar Sesión</a>
+    </div>   
+  </div>
+</nav>
 <body class="text-center">
     <div class="container"><br>
         <div class="row">
-            <div class="col">
-                <div class="text-right">
-                   <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
-                </div>                
-            </div>
         </div>
         <div class="row">
             <div class="col-md"></div>

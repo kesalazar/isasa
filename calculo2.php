@@ -5,15 +5,15 @@
   function CalcularProyecto($no_proy)
       {
             include "./funciones_librerias/db_connect.php";
-            $sentencia="SELECT * FROM proyectos WHERE nombres='".$no_proy."'";
+            $sentencia="SELECT * FROM proyectos WHERE proyecto='".$no_proy."'";
             $resultado=$conexion->query($sentencia) or die(mysqli_error($conexion));
             $fila=$resultado->fetch_assoc();
         
             return[
-                $fila['nombres'],
-                $fila['Largo'],
-                $fila['Ancho'],
-                $fila['Uso']
+                $fila['proyecto'],
+                $fila['largo'],
+                $fila['ancho'],
+                $fila['uso']
             ];
       } 
       $largo=$consulta[1];
@@ -88,21 +88,26 @@ $precio_total=$pr1+$pr2+$pr3+$pr4;
     <link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary" href="bienvenido_ingreso.php">Home</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="cerrar.php">Cerrar Sesión</a>
+    </div>   
+  </div>
+</nav>  
 	<header>
 		<div class="container text-center">
       <br>
       <div class="row">
         <div class="col-md"></div>
         <div class="col-md">
-          <div class="alert alert-secondary" role="alert">
-            <h2 class="alert-heading"><img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA</h2>                                        
-          </div>
         </div>
-        <div class="col-md">
-          <div class="text-right">
-              <input type="submit" class="btn btn-secondary" value="Cerrar Sesión" onclick="location='ingreso.php'"> 
-          </div>
-        </div>
+        <div class="col-md"></div>
       </div>
 		</div>
 		<div class="text-center">

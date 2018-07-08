@@ -5,7 +5,7 @@
   function ModificarProyecto($nombres,$largo,$ancho,$uso)
       {
         include "./funciones_librerias/db_connect.php";
-        $sentencia= "UPDATE proyectos SET nombres='".$nombres."', Largo='".$largo."', Ancho='".$ancho."', Uso='".$uso."' WHERE nombres='".$nombres."' ";
+        $sentencia= "UPDATE proyectos SET proyecto='".$nombres."', largo='".$largo."', ancho='".$ancho."', uso='".$uso."' WHERE proyecto='".$nombres."' ";
         $conexion->query($sentencia) or die (mysqli_error($conexion));
 
       }

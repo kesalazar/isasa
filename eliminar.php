@@ -4,7 +4,7 @@
  function EliminarProyecto($nombres)
  {
 	include "./funciones_librerias/db_connect.php";
-	$sentencia= "DELETE FROM proyectos WHERE nombres='".$nombres."' ";
+	$sentencia= "DELETE FROM proyectos WHERE proyecto='".$nombres."' ";
 	$conexion->query($sentencia) or die ("Error al eliminar".mysqli_error($conexion));
  }
 ?>

@@ -9,6 +9,19 @@
 	<link rel="shortcut icon" href="./imagenes/ico_isasa.png"/>
 	<link rel="stylesheet" href="./css/estilo_datos.css"> 
 </head>
+<nav class="navbar navbar-expand-lg navbar-light alert-secondary">
+  <a class="navbar-brand" href="index.html"> <img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt=""> ISASA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">    
+      <div class="btn-group" role="group" aria-label="Basic example">  
+      <a class="nav-item nav-link btn btn-outline-secondary" href="ingreso.php">Ingreso</a>
+      <a class="nav-item nav-link btn btn-outline-secondary active">Usar sin registro</a>
+      <a class="nav-item nav-link btn btn-outline-secondary" href="registro1.php">Registro</a>
+    </div>   
+  </div>
+</nav>
 <body>
 	<header>
 		<div class="container text-center">
@@ -17,10 +30,6 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 					<div class="alert alert-dark" role="alert">
-                    <h2 class="alert-heading">
-                    	<img src="./imagenes/ico_isasa.png" width="30" height="30" class="d-inline-block align-top" alt="">  ISASA
-                	</h2>
-                    <hr>	
 					<h5>RADIER</h5>
 					<h6>Ingresa dimensiones y uso del radier</h6>                 
             		</div>
