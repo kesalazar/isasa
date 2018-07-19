@@ -7,6 +7,6 @@ $password=$_SESSION['password'];
         $conexion->query($sql) or die (mysqli_error($conexion));    
 ?>
   <script type="text/javascript">
-   alert("Usuario ingresado correctamente!!!");
+   alert("Estás registrado correctamente! Ahora ingresa.");
    window.location.href="ingreso.php";
   </script>
