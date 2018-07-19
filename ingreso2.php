@@ -24,7 +24,7 @@ if ($cod != null) {
     header('Location: bienvenido_ingreso.php');
 }else{
     
-    echo ("<script type=\"text/javascript\">alert(\"Los datos ingresados no son validos\"); 
+    echo ("<script type=\"text/javascript\">alert(\"Usuario no registrado o contraseña incorrecta\"); 
           window.location.href='ingreso.php';
           </script>");
     
